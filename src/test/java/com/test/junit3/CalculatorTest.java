@@ -8,39 +8,75 @@ import junit.framework.TestCase;
  */
 public class CalculatorTest extends TestCase {
 
+    private Calculator cal;
+
     @Override
-    protected void setUp() throws Exception {
-        System.out.println("setUp");
+    public void setUp() throws Exception {
+        cal = new Calculator();
+
     }
 
     @Override
-    protected void tearDown() throws Exception {
-        System.out.println("tearDown");
+    public void tearDown() throws Exception {
+
     }
 
     /**
-     *Junit3.8中, 测试方法满足如下原则
-     *     1. public
-     *     2. void
-     *     3. 无方法参数
-     *     4. 方法名称必须以test开头
+     * Junit3.8中, 测试方法满足如下原则
+     * 1. public
+     * 2. void
+     * 3. 无方法参数
+     * 4. 方法名称必须以test开头
      */
 
 
-
     public void testAdd() {
-        Calculator cal = new Calculator();
         int result = cal.add(1, 2);
 
         Assert.assertEquals(3, result);
     }
 
     public void testMinus() {
+        int result = cal.minus(1, 2);
+
+        Assert.assertEquals(-1, result);
+
     }
 
     public void testMultiply() {
+        int result = cal.multiply(2, 3);
+
+        Assert.assertEquals(6, result);
     }
 
     public void testDivide() {
+        int result = 0;
+        try {
+            result = cal.divide(6, 4);
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            Assert.fail();
+        }
+
+        Assert.assertEquals(1, result);
     }
+
+    public void testDivide2() {
+        Throwable tx = null;
+
+        try {
+            cal.divide(4, 0);
+
+            Assert.fail();
+        } catch (Exception e) {
+            tx = e;
+        }
+
+        Assert.assertNotNull(tx);
+        Assert.assertEquals(Exception.class, tx.getClass());
+        Assert.assertEquals("除数不能为0!", tx.getMessage());
+
+    }
+
 }
