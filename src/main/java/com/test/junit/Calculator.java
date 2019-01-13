@@ -1,4 +1,4 @@
-package com.test.junit3;
+package com.test.junit;
 
 /**
  * 数学计算

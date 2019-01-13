@@ -1,4 +1,4 @@
-package com.test.junit3;
+package com.test.junit;
 
 import junit.framework.Assert;
 import junit.framework.TestCase;
