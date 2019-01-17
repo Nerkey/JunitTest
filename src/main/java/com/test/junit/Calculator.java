@@ -1,8 +1,5 @@
 package com.test.junit;
 
-/**
- * 数学计算
- */
 public class Calculator {
 
     public int add(int a, int b) {

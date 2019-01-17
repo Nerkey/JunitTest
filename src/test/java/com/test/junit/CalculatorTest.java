@@ -13,12 +13,12 @@ public class CalculatorTest extends TestCase {
     @Override
     public void setUp() throws Exception {
         cal = new Calculator();
-
+        System.out.println("setUp");
     }
 
     @Override
     public void tearDown() throws Exception {
-
+        System.out.println("tearDown");
     }
 
     /**
